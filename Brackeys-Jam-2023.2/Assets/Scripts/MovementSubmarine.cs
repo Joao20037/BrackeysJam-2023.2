@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class MovementPlayer : MonoBehaviour
+public class MovementSubmarine : MonoBehaviour
 {
     [SerializeField] private float speed;
-    [SerializeField] private float jumpStrength;
     private Rigidbody2D rb;
     private InputControls inputs;
 
@@ -26,24 +24,15 @@ public class MovementPlayer : MonoBehaviour
         inputs = new InputControls();
     }
 
+
     // Update is called once per frame
     void Update()
     {
-        Move(inputs.PlayerControlMovement.Move.ReadValue<Vector2>());
-        Jump(inputs.PlayerControlMovement.Jump.ReadValue<float>());
+        Move(inputs.SubmarinoControl.Move.ReadValue<Vector2>());
     }
 
     private void Move(Vector2 movementDirection)
     {
-        rb.velocity = new Vector3(movementDirection.x,movementDirection.y, 0) * speed;
+        rb.velocity = new Vector3(movementDirection.x, movementDirection.y, 0) * speed;
     }
-
-    private void Jump(float action)
-    {
-        if (action == 1)
-        {
-            rb.AddForce(new Vector2(0, 1) * jumpStrength);
-        }
-    }
-
 }
