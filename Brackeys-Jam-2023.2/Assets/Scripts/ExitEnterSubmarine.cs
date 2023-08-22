@@ -83,16 +83,17 @@ public class ExitEnterSubmarine : MonoBehaviour
     {
         if (action == 1)
         {
+
             player.transform.position = submarine.transform.position + new Vector3(-2, 0, 0); 
             // Precisa colocar spawn aleatorio
-            
             // if collider (hit something) try new position
 
             player.SetActive(true);
-            vcam.Follow = player.transform;
-            rbSub.constraints = RigidbodyConstraints2D.FreezeAll;
-            isPlayer = true;
+
+            player.SetActive(true);
+            player.transform.position = submarine.transform.position + new Vector3(-2, 0, 0);
             elapsedtime = 0f;
+
             submarine.GetComponent<MovementSubmarine>().enabled = false;
         }
     }
@@ -126,10 +127,14 @@ public class ExitEnterSubmarine : MonoBehaviour
         return false;
     }
 
-private void OnDrawGizmos()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
 
         Gizmos.DrawWireSphere(submarine.transform.position, radiusRange);
     }
+
+        }
+    }
+
 }

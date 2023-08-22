@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class MovementPlayer : MonoBehaviour
 {
     [SerializeField] private float speed;
+    [SerializeField] private float jumpStrength;
     private Rigidbody2D rb;
     private InputControls inputs;
 
@@ -25,24 +26,24 @@ public class MovementPlayer : MonoBehaviour
         inputs = new InputControls();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
         Move(inputs.PlayerControlMovement.Move.ReadValue<Vector2>());
+        Jump(inputs.PlayerControlMovement.Jump.ReadValue<float>());
     }
 
     private void Move(Vector2 movementDirection)
     {
-        //Debug.Log("entrou");    
         rb.velocity = new Vector3(movementDirection.x,movementDirection.y, 0) * speed;
-        //Debug.Log(movementDirection.x);
-        //Debug.Log(movementDirection.y);
+    }
+
+    private void Jump(float action)
+    {
+        if (action == 1)
+        {
+            rb.AddForce(new Vector2(0, 1) * jumpStrength);
+        }
     }
 
 }
