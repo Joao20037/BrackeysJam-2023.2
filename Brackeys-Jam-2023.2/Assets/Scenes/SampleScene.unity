@@ -308,7 +308,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1248653530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -719,6 +719,7 @@ MonoBehaviour:
   player: {fileID: 1248653527}
   submarine: {fileID: 1952568627}
   delay: 0.5
+  radiusRange: 2
 --- !u!4 &2057103546
 Transform:
   m_ObjectHideFlags: 0
