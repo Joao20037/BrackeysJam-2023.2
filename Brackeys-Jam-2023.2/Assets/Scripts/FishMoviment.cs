@@ -38,7 +38,7 @@ public class FishMoviment : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
     }
 
-    private IEnumerator Swim()
+    public IEnumerator Swim()
     {
         while (true)
         {
