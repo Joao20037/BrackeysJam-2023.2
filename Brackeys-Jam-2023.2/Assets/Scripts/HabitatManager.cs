@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -83,3 +83,4 @@ public class HabitatManager : MonoBehaviour
         return new Vector2(x, y);
     }
 }
+*/

@@ -340,9 +340,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1371678904}
   - component: {fileID: 1371678903}
-  m_Layer: 2
+  m_Layer: 4
   m_Name: Triangle (2)
-  m_TagString: Untagged
+  m_TagString: Prey
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -407,8 +407,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1371678902}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.7, y: -1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 1.61, y: -2.06, z: 0}
+  m_LocalScale: {x: 1, y: 1.0249, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -618,15 +618,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d111db9503a5e5c4f8e4c6778f605ce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRadius: 10
-  viewAngle: 60
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 16
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 32
-  meshResolution: 0
 --- !u!1 &1887038360
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,9 +699,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2108906578}
   - component: {fileID: 2108906577}
-  m_Layer: 5
+  m_Layer: 4
   m_Name: Triangle (1)
-  m_TagString: Untagged
+  m_TagString: Pradator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -775,7 +766,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2108906576}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.16, y: 2.49, z: 0}
+  m_LocalPosition: {x: -9.06, y: 3.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -799,11 +790,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4768317536015633814, guid: 80ff09faa3d943349ab22c6c5b73e654, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.06
+      value: -0.23
       objectReference: {fileID: 0}
     - target: {fileID: 4768317536015633814, guid: 80ff09faa3d943349ab22c6c5b73e654, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.6
+      value: -0.61
       objectReference: {fileID: 0}
     - target: {fileID: 4768317536015633814, guid: 80ff09faa3d943349ab22c6c5b73e654, type: 3}
       propertyPath: m_LocalPosition.z
@@ -837,5 +828,32 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4768317536015633815, guid: 80ff09faa3d943349ab22c6c5b73e654, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80ff09faa3d943349ab22c6c5b73e654, type: 3}
+--- !u!1 &4768317537687713441 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4768317536015633812, guid: 80ff09faa3d943349ab22c6c5b73e654, type: 3}
+  m_PrefabInstance: {fileID: 4768317537687713440}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4768317537687713446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4768317537687713441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7fdd5d72f359cd40b608d4b5e4372c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 2
+  raycastDistance: 1.5
+  fleeDistance: 2
+  fishLayer:
+    serializedVersion: 2
+    m_Bits: 16
