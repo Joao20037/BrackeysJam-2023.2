@@ -6,24 +6,25 @@ using Unity.VisualScripting;
 
 public class FieldOfView : MonoBehaviour
 {
-    Mesh mesh = new Mesh();
+    Mesh area;
     Vector3 origin;
     [SerializeField] private LayerMask layermask;
-    float fov;
+    [SerializeField]float fov = 90f;
     float startingAngle;
+    [SerializeField]float viewDistance = 50f;
     // Start is called before the first frame update
     void Start()
     {   
-        GetComponent<MeshFilter>().mesh = mesh;
+        area = new Mesh();
+        GetComponent<MeshFilter>().mesh = area;
         origin = Vector3.zero;
-        fov = 90f;
     }
 
-    private void Update() {
+    private void Update() 
+    {
         int raycount = 50;
         float angle = 0f;
         float angleIncrease = fov/raycount;
-        float viewDistance = 50f;
 
         Vector3[] vertices = new Vector3[raycount + 1 + 1];
         Vector2[] uv = new Vector2[vertices.Length];
@@ -63,9 +64,9 @@ public class FieldOfView : MonoBehaviour
         triangles[1] = 1;
         triangles[2] = 2;
 
-        mesh.vertices = vertices;
-        mesh.uv = uv;
-        mesh.triangles = triangles;
+        area.vertices = vertices;
+        area.uv = uv;
+        area.triangles = triangles;
     }
 
     public void SetOrigin (Vector3 origin)
@@ -76,5 +77,15 @@ public class FieldOfView : MonoBehaviour
     public void SetAimDirection (Vector3 aimDirection)
     {
         startingAngle = UtilsClass.GetAngleFromVectorFloat(aimDirection) - fov/2f;
+    }
+
+    public void SetFOV(float fov)
+    {
+        this.fov=fov;
+    }
+
+    public void SetViewDistance(float ViewDistance)
+    {
+        this.viewDistance = ViewDistance;
     }
 }
