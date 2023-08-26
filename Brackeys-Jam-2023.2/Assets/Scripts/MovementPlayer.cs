@@ -39,10 +39,10 @@ public class MovementPlayer : MonoBehaviour
 
     private void Move(Vector2 movementDirection)
     {
-        Debug.Log("entrou");    
+        //Debug.Log("entrou");    
         rb.velocity = new Vector3(movementDirection.x,movementDirection.y, 0) * speed;
-        Debug.Log(movementDirection.x);
-        Debug.Log(movementDirection.y);
+        // Debug.Log(movementDirection.x);
+        // Debug.Log(movementDirection.y);
     }
 
 }
