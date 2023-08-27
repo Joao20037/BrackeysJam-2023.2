@@ -78,8 +78,23 @@ public class HabitatManager : MonoBehaviour
 
     private Vector2 GetRandomSpawnPosition()
     {
-        float x = Random.Range(-spawnAreaSize.x / 2, spawnAreaSize.x / 2);
-        float y = Random.Range(-spawnAreaSize.y / 2, spawnAreaSize.y / 2);
-        return new Vector2(x, y);
+        Vector2 randomPosition = Vector2.zero;
+        int maxAttempts = 10; // To avoid infinite loop
+
+        for (int i = 0; i < maxAttempts; i++)
+        {
+            float x = Random.Range(transform.position.x - spawnAreaSize.x / 2, transform.position.x + spawnAreaSize.x / 2);
+            float y = Random.Range(transform.position.y - spawnAreaSize.y / 2, transform.position.y + spawnAreaSize.y / 2);
+            randomPosition = new Vector2(x, y);
+
+            Collider2D collider = Physics2D.OverlapCircle(randomPosition, 0.1f); // Check for colliders at the potential spawn point
+
+            if (collider != null && collider.gameObject.layer == LayerMask.NameToLayer("Water"))
+            {
+                return randomPosition;
+            }
+        }
+
+        return randomPosition;
     }
 }

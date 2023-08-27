@@ -61,7 +61,7 @@ public class FishHunt : MonoBehaviour
         //Debug.Log(hitColliders.Length);
         foreach (Collider2D col in hitColliders)
         {
-            if (col.gameObject != gameObject)
+            if (col.gameObject != gameObject || col.gameObject.tag == "Palhaco" || col.gameObject.tag == "Coringa") 
             {
                 targetPrey = col.transform;
                 Debug.Log(targetPrey.gameObject);
