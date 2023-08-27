@@ -72,4 +72,9 @@ public class MovementPlayer : MonoBehaviour
         }
     }
 
+    public void UpdatePlayerSpeed(float speed)
+    {
+        this.speed += speed;
+    }
+
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class MovementSubmarine : MonoBehaviour
 {
     [SerializeField] private float speed;
-    [SerializeField] private float deepLimit;
+    [SerializeField] public float deepLimit;
     private Rigidbody2D rb;
     private InputControls inputs;
     private float x_scale;

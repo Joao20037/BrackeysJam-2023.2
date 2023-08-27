@@ -29,15 +29,12 @@ public class ExitEnterSubmarine : MonoBehaviour
     private void Awake()
     {
         inputs = new InputControls();
- 
     }
 
     private void Start()
     {
         player.SetActive(false);
         rbSub = submarine.GetComponent<Rigidbody2D>();
-        
-        
     }
 
     // Update is called once per frame
@@ -46,7 +43,7 @@ public class ExitEnterSubmarine : MonoBehaviour
         rangedPlayer = isPlayerRanged(radiusRange, player);
 
         elapsedtime += Time.deltaTime;
-
+        Debug.Log(isPlayer);
         if (elapsedtime >= delay) // Delay para entrar ou sair no submarino 
         {
 
@@ -84,31 +81,17 @@ public class ExitEnterSubmarine : MonoBehaviour
         if (action == 1)
         {
 
-            player.transform.position = submarine.transform.position + new Vector3(-2, 0, 0); 
+            player.transform.position = submarine.transform.position + new Vector3(-2, 0, 0);
             // Precisa colocar spawn aleatorio
             // if collider (hit something) try new position
-
+            vcam.Follow = player.transform;
             player.SetActive(true);
-
-            player.SetActive(true);
-            player.transform.position = submarine.transform.position + new Vector3(-2, 0, 0);
             elapsedtime = 0f;
-
+            isPlayer = true;
             submarine.GetComponent<MovementSubmarine>().enabled = false;
         }
     }
 
-    private bool isPlayerRanged(RaycastHit2D hit)
-    {
-        if (hit.collider.gameObject == player)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
 
     public bool isPlayerRanged(float radius, GameObject player)
     {
@@ -134,7 +117,6 @@ public class ExitEnterSubmarine : MonoBehaviour
         Gizmos.DrawWireSphere(submarine.transform.position, radiusRange);
     }
 
-        }
-    }
+
 
 }
