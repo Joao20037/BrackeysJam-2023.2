@@ -5,10 +5,10 @@ using UnityEngine;
 public class MovementSubmarine : MonoBehaviour
 {
     [SerializeField] private float speed;
+    [SerializeField] private float deepLimit;
     private Rigidbody2D rb;
     private InputControls inputs;
     private float x_scale;
-
     private void OnEnable()
     {
         inputs.Enable();
@@ -43,9 +43,32 @@ public class MovementSubmarine : MonoBehaviour
             transform.localScale = new Vector3(x_scale, transform.localScale.y, transform.localScale.z);
 
         }
+
+
+        if (transform.position.y < -deepLimit)
+        {
+            transform.position = new Vector3(transform.position.x, - (deepLimit), transform.position.z);
+        }
+
+
     }
     private void Move(Vector2 movementDirection)
     {
-        rb.velocity = new Vector3(movementDirection.x, movementDirection.y, 0) * speed;
+        if(movementDirection.y < 0)
+        {
+           
+            if (transform.position.y < - deepLimit)
+            {
+                return;
+            }
+            else
+            {
+                rb.velocity = new Vector3(movementDirection.x, movementDirection.y, 0) * speed;
+            }
+        }
+        else
+        {
+            rb.velocity = new Vector3(movementDirection.x, movementDirection.y, 0) * speed;
+        }
     }
 }
