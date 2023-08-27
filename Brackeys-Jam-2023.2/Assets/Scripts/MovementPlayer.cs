@@ -7,7 +7,7 @@ public class MovementPlayer : MonoBehaviour
 {
     [SerializeField] private float speed;
     private Rigidbody2D rb;
-    private PlayerControl inputs;
+    private InputControls inputs;
 
     private void OnEnable()
     {
@@ -22,7 +22,7 @@ public class MovementPlayer : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        inputs = new PlayerControl();
+        inputs = new InputControls();
     }
 
     // Start is called before the first frame update
