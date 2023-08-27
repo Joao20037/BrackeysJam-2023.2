@@ -6,8 +6,8 @@ public class HabitatManager : MonoBehaviour
 {
     public GameObject[] fishPrefabs; // Array de prefabs de peixes
     public Vector2 spawnAreaSize = new Vector2(10f, 10f); // Tamanho da área de spawn
-    public int minFishCount = 5; // Contagem mínima de peixes por tipo
-    public int maxFishCount = 10; // Contagem máxima de peixes por tipo
+    public int minFishCount = 2; // Contagem mínima de peixes por tipo
+    public int maxFishCount = 5; // Contagem máxima de peixes por tipo
 
 
 
@@ -18,16 +18,13 @@ public class HabitatManager : MonoBehaviour
         StartCoroutine(ManageFish());
     }
 
-
-
-
     private IEnumerator ManageFish()
     {
         while (true)
         {
             foreach (GameObject fishPrefab in fishPrefabs)
             {
-                int currentFishCount = CountFishOfType(fishPrefab);
+                int currentFishCount = CountFishOfType(fishPrefab.tag);
 
                 if (currentFishCount < minFishCount)
                 {
@@ -43,18 +40,19 @@ public class HabitatManager : MonoBehaviour
         }
     }
 
-    private int CountFishOfType(GameObject fishPrefab)
+    private int CountFishOfType(string fishTag)
+{
+    int count = 0;
+    foreach (GameObject spawnedFish in spawnedFish)
     {
-        int count = 0;
-        foreach (GameObject fish in spawnedFish)
+        if (spawnedFish != null && spawnedFish.CompareTag(fishTag))
         {
-            if (fish.gameObject == fishPrefab)
-            {
-                count++;
-            }
+            count++;
         }
-        return count;
     }
+    return count;
+}
+
 
     private void SpawnFish(GameObject fishPrefab)
     {
@@ -69,7 +67,7 @@ public class HabitatManager : MonoBehaviour
         for (int i = spawnedFish.Count - 1; i >= 0; i--)
         {
             GameObject fish = spawnedFish[i];
-            if (fish.gameObject == fishPrefab)
+            if (fish.gameObject == fishPrefab)      
             {
                 spawnedFish.RemoveAt(i);
                 Destroy(fish);
