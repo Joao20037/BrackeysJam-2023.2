@@ -37,6 +37,7 @@ public class ExitEnterSubmarine : MonoBehaviour
         player.SetActive(false);
         rbSub = submarine.GetComponent<Rigidbody2D>();
         
+        
     }
 
     // Update is called once per frame
@@ -73,6 +74,8 @@ public class ExitEnterSubmarine : MonoBehaviour
             rbSub.constraints = RigidbodyConstraints2D.FreezeRotation;
             isPlayer = false;
             elapsedtime = 0f;
+            submarine.GetComponent<MovementSubmarine>().enabled = true;
+
         }
     }
 
@@ -80,14 +83,17 @@ public class ExitEnterSubmarine : MonoBehaviour
     {
         if (action == 1)
         {
-            player.transform.position = submarine.transform.position + new Vector3(-2, 0, 0);
+            player.transform.position = submarine.transform.position + new Vector3(-2, 0, 0); 
+            // Precisa colocar spawn aleatorio
             
             // if collider (hit something) try new position
+
             player.SetActive(true);
             vcam.Follow = player.transform;
             rbSub.constraints = RigidbodyConstraints2D.FreezeAll;
             isPlayer = true;
             elapsedtime = 0f;
+            submarine.GetComponent<MovementSubmarine>().enabled = false;
         }
     }
 
