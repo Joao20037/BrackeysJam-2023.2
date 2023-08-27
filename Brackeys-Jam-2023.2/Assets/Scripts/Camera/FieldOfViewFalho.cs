@@ -1,17 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using CodeMonkey.Utils;
-using Unity.VisualScripting;
 
-public class FieldOfView : MonoBehaviour
-{
+public class FieldOfViewFalso : MonoBehaviour
+{   
+    public bool temPeixe = false;
     Mesh area;
     Vector3 origin;
     [SerializeField] private LayerMask layermask;
+    public LayerMask pegaPeixe;
     [SerializeField]float fov = 90f;
     float startingAngle;
     [SerializeField]float viewDistance = 50f;
+
+    public GameObject peixeAtingido;
     // Start is called before the first frame update
     void Start()
     {   
@@ -36,7 +37,8 @@ public class FieldOfView : MonoBehaviour
         for (int i = 0; i<=raycount; i++)
         {
             Vector3 vertex;
-            RaycastHit2D raycastHit2D = Physics2D.Raycast(origin, UtilsClass.GetVectorFromAngle(angle), viewDistance, layermask);
+            RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, UtilsClass.GetVectorFromAngle(angle), viewDistance, layermask);
+            temPeixe = AchouPeixe(pegaPeixe, angle);            
             if (raycastHit2D.collider == null)
             {
                 //No Hit
@@ -45,8 +47,10 @@ public class FieldOfView : MonoBehaviour
             else
             {
                 //Hit something
+                Debug.Log("FOV bateu em algo");
                 vertex = raycastHit2D.point;
             }
+
             vertices[vertexIndex] = vertex;
             if(i>0)
             {
@@ -67,6 +71,7 @@ public class FieldOfView : MonoBehaviour
         area.vertices = vertices;
         area.uv = uv;
         area.triangles = triangles;
+        area.RecalculateBounds();
     }
 
     public void SetOrigin (Vector3 origin)
@@ -88,4 +93,19 @@ public class FieldOfView : MonoBehaviour
     {
         this.viewDistance = ViewDistance;
     }
+
+    private bool AchouPeixe(LayerMask pegaPeixe, float angle)
+    {   
+            RaycastHit2D CaçaPeixe = Physics2D.Raycast(transform.position, UtilsClass.GetVectorFromAngle(angle), viewDistance, pegaPeixe);
+            if(CaçaPeixe.collider == null)
+            {
+                return false;
+            }
+            else
+            {
+                Debug.Log(CaçaPeixe.collider.name);
+                return true;
+            }
+    }
+
 }
