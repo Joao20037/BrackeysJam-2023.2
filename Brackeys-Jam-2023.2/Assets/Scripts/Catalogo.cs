@@ -41,7 +41,8 @@ public class Catalogo : MonoBehaviour
     {
         if(pontos == 3 || pontos == 6 || pontos == 9)
         {
-            GameObject.Find("Submarine").GetComponent<MovementSubmarine>().UpdateDeepLimit(10*(pontos/3));
+            GameObject.Find("Submarine").GetComponent<MovementSubmarine>().UpdateDeepLimit(100 * (pontos/3));
+            GameObject.Find("Player").GetComponent<MovementPlayer>().UpdateDeepLimit(100 * (pontos / 3));
         }
         else if (pontos == 2 || pontos == 4 || pontos == 8 )
         {

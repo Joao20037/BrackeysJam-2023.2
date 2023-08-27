@@ -7,6 +7,7 @@ public class MovementPlayer : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float jumpStrength;
+    [SerializeField] public float deepLimit;
     private Rigidbody2D rb;
     private InputControls inputs;
     private float x_scale;
@@ -57,8 +58,16 @@ public class MovementPlayer : MonoBehaviour
         {
             animator.SetBool("isMoving", false);
         }
-    }
 
+        if (transform.position.y < -deepLimit)
+        {
+            transform.position = new Vector3(transform.position.x, -(deepLimit), transform.position.z);
+        }
+    }
+    public void UpdateDeepLimit(float newDeepLimit)
+    {
+        this.deepLimit += newDeepLimit;
+    }
     private void Jump(float action)
     {
         if (action == 1)
