@@ -10,6 +10,10 @@ public class FishMoviment : MonoBehaviour
     public float swimRange = 5f; // Distância máxima que o peixe pode nadar do ponto inicial
     public Sprite[] swimSprites; // Array de sprites de natação
 
+
+    private Coroutine swimCoroutine; // Referência para a coroutine de natação
+    public bool podeNadar = true;
+
     private Vector3 targetPosition;
     private SpriteRenderer spriteRenderer;
 
@@ -17,12 +21,21 @@ public class FishMoviment : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         SetRandomTargetPosition();
-        StartCoroutine(Swim());
+        swimCoroutine = StartCoroutine(Swim());
     }
 
     private void Update()
     {
-        RotateToTarget();
+        if(podeNadar){
+            
+            RotateToTarget();
+            if(swimCoroutine == null)
+            {
+                StopAllCoroutines();
+                swimCoroutine = StartCoroutine(Swim());
+            }
+        }
+            
     }
 
     private void SetRandomTargetPosition()
@@ -40,7 +53,7 @@ public class FishMoviment : MonoBehaviour
 
     public IEnumerator Swim()
     {
-        while (true)
+        while (podeNadar)
         {
             // Troca o sprite para simular a animação de natação
             spriteRenderer.sprite = swimSprites[Random.Range(0, swimSprites.Length)];
@@ -58,5 +71,18 @@ public class FishMoviment : MonoBehaviour
 
             SetRandomTargetPosition();
         }
+        swimCoroutine = null;
     }
+
+    /*public void startSwin(){
+        if(podeNadar){
+            RotateToTarget();
+            if(swimCoroutine == null)
+            {
+                StopAllCoroutines();
+                swimCoroutine = StartCoroutine(Swim());
+            }
+        }
+    }*/
+
 }
