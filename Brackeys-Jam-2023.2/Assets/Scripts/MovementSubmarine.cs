@@ -52,6 +52,12 @@ public class MovementSubmarine : MonoBehaviour
 
 
     }
+
+    public void UpdateDeepLimit(float newDeepLimit)
+    {
+        this.deepLimit += newDeepLimit;
+    }
+
     private void Move(Vector2 movementDirection)
     {
         if(movementDirection.y < 0)

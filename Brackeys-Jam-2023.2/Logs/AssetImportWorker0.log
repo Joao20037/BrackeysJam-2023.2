@@ -509,3 +509,39 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 182.597077 seconds.
+  path: Assets/Sprites/Scenario/map.png
+  artifactKey: Guid(daa75657ee057414eb17b4b813c8fe82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Scenario/map.png using Guid(daa75657ee057414eb17b4b813c8fe82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85e4bd3327fed09407aa296669d58961') in 0.155625 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 12.264278 seconds.
+  path: Assets/Sprites/Scenario/map.png
+  artifactKey: Guid(daa75657ee057414eb17b4b813c8fe82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Scenario/map.png using Guid(daa75657ee057414eb17b4b813c8fe82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8679f90f810d58a80f1ca57b26e18c2') in 0.029650 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 215.672617 seconds.
+  path: Assets/Sprites/Scenario/map.png
+  artifactKey: Guid(daa75657ee057414eb17b4b813c8fe82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Scenario/map.png using Guid(daa75657ee057414eb17b4b813c8fe82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'deabaf8adb044f967439bcd8602c5977') in 0.125816 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 12.048728 seconds.
+  path: Assets/Sprites/Scenario
+  artifactKey: Guid(0b2cf47dde0f8a345ad493e64d3216ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Scenario using Guid(0b2cf47dde0f8a345ad493e64d3216ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '70cf77544c9f7dc557097f0ee6c8e8e5') in 0.023971 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 124.506369 seconds.
+  path: Assets/Scripts/MovementSubmarine.cs
+  artifactKey: Guid(6389a5a672653a34daef712912e4e179) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/MovementSubmarine.cs using Guid(6389a5a672653a34daef712912e4e179) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f7fc9e029e31460d696efb53d3684691') in 0.033812 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 133.514470 seconds.
+  path: Assets/Scripts
+  artifactKey: Guid(38e3b142320181a4388ee598389d108a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts using Guid(38e3b142320181a4388ee598389d108a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fcc60fc59b896d4624ac6a8255fbf7c6') in 0.043145 seconds 
