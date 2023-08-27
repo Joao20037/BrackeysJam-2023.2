@@ -29,8 +29,17 @@ public class PhotoCamera : MonoBehaviour
     }
 
     public void Shoot(Collider2D[] peixes)
-    {   
+    {
+        float dist = 0;
         GameObject peixe = peixes[0].gameObject;
+        foreach (Collider2D mano in peixes)
+        {
+            if (dist < Vector3.Distance(transform.position, mano.transform.position))
+            {
+                dist = Vector3.Distance(transform.position, mano.transform.position);
+                peixe = mano.gameObject;
+            }
+        }
         string tag = peixe.tag;
         //Atordoa Peixe
         StartCoroutine(Atordoar(peixe));
