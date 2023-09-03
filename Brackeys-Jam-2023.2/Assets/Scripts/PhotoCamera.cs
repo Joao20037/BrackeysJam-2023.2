@@ -42,20 +42,24 @@ public class PhotoCamera : MonoBehaviour
                 Debug.Log(peixe.name);
             }
         }
-        string tag = peixe.tag;
         //Atordoa Peixe
         StartCoroutine(Atordoar(peixe));
-        
+
+
         //Atualiza catálogo
-        Catalogo catalogo = GameObject.FindGameObjectWithTag("Player").GetComponent<Catalogo>();
-        if(catalogo.registros.TryGetValue(tag, out int value))
-        {   
-            value++;
-            if (value == catalogo.Checkpoints[tag])
-            {   
-                catalogo.registros[tag] = value;
-                catalogo.upgradePoints++;
-                catalogo.Efeito(catalogo.upgradePoints);
+        string tag = peixe.tag;
+        Catalogo catalogo = GameObject.FindGameObjectWithTag("Catalogo").GetComponent<Catalogo>();
+        foreach(DadosPeixe registro in catalogo.peixes)
+        {
+            if (registro.nomePeixe==tag)
+            {
+                registro.fotografados++;
+                if (registro.fotografados==registro.meta)
+                {
+                    catalogo.upgradePoints++;
+                    catalogo.Efeito(catalogo.upgradePoints);
+                }
+                return;
             }
         }
     }

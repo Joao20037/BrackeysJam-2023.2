@@ -4,12 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Catalogo : MonoBehaviour
-{   
-    public Dictionary<string, int> registros = new Dictionary<string, int>();
-    public Dictionary<string, int> Checkpoints = new Dictionary<string, int>();
+{
+    public List<DadosPeixe> peixes;
     public int upgradePoints;
     
-    private void Start() 
+    /*private void Start() 
     {
         //Tipo de peixe e quantos fotografou 
         registros.Add("Palhaco", 0);
@@ -35,7 +34,7 @@ public class Catalogo : MonoBehaviour
         Checkpoints.Add("pexeflor", 2);
         Checkpoints.Add("monstrovrum", 1);
         Checkpoints.Add("vagalume", 5);
-    }
+    }*/
     
     public void Efeito(int pontos)
     {
