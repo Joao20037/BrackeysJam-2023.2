@@ -189,6 +189,12 @@ MonoBehaviour:
     volume: 1
     pitch: 1.03
     loop: 1
+  - audioSource: {fileID: 0}
+    name: pagina
+    clip: {fileID: 8300000, guid: 20165bf3d829c664882be2543857466e, type: 3}
+    volume: 1
+    pitch: 1.03
+    loop: 1
 --- !u!4 &339665339
 Transform:
   m_ObjectHideFlags: 0
