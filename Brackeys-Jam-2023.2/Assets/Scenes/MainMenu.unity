@@ -152,7 +152,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70c60ce1f26f5b141869f850e6ffdfb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - audioSource: {fileID: 0}
+    name: ambiente
+    clip: {fileID: 8300000, guid: 27ca92ec2ca018846a65f11fd47745b9, type: 3}
+    volume: 1
+    pitch: 1.03
+    loop: 1
+  - audioSource: {fileID: 0}
+    name: camera
+    clip: {fileID: 8300000, guid: 03a4bb33040e61f499a929466fea7e69, type: 3}
+    volume: 1
+    pitch: 1.03
+    loop: 0
+  - audioSource: {fileID: 0}
+    name: player
+    clip: {fileID: 8300000, guid: 0a8e0e64ad2c4e24b81c1fc487e7598d, type: 3}
+    volume: 1
+    pitch: 1.03
+    loop: 1
+  - audioSource: {fileID: 0}
+    name: sub
+    clip: {fileID: 8300000, guid: 2e081f00241a7fd438c9351737af253f, type: 3}
+    volume: 0.517
+    pitch: 1.03
+    loop: 1
+  - audioSource: {fileID: 0}
+    name: upgrade
+    clip: {fileID: 8300000, guid: d706739dd3ab4f14481d3f605c8e1397, type: 3}
+    volume: 1
+    pitch: 1.03
+    loop: 0
+  - audioSource: {fileID: 0}
+    name: menu
+    clip: {fileID: 8300000, guid: ef8f0cf34fc57214da46a82c2c8aff9d, type: 3}
+    volume: 1
+    pitch: 1.03
+    loop: 1
 --- !u!4 &339665339
 Transform:
   m_ObjectHideFlags: 0

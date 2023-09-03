@@ -13,6 +13,11 @@ public class HabitatManager : MonoBehaviour
 
     private List<GameObject> spawnedFish = new List<GameObject>();
 
+    private void Awake() {
+        AudioManager.instance.StopSound("menu");
+        AudioManager.instance.PlaySound("ambiente");
+    }
+
     private void Start()
     {
         StartCoroutine(ManageFish());

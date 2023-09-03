@@ -17,6 +17,7 @@ public class PhotoCamera : MonoBehaviour
     {
        if (Input.GetMouseButtonDown(0) && fov.targetsInRadius.Length > 0)
        {
+                AudioManager.instance.PlaySound("camera");
                 Shoot(fov.targetsInRadius);
        } 
     }
@@ -31,6 +32,8 @@ public class PhotoCamera : MonoBehaviour
 
     public void Shoot(Collider2D[] peixes)
     {
+        
+
         float dist = 0;
         Debug.Log(peixes.Length);
         foreach (Collider2D mano in peixes)

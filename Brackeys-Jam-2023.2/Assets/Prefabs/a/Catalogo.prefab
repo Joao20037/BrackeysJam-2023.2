@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4829047221772304657
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4722378391918536709}
+  - component: {fileID: 8316143174481902749}
+  m_Layer: 0
+  m_Name: Catalogo
+  m_TagString: Catalogo
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4722378391918536709
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4829047221772304657}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 108.6383, y: -145.7672, z: 0.9751458}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8316143174481902749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4829047221772304657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 991fbc00b7701aa4d9d5f43cc4096526, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  peixes:
+  - {fileID: 11400000, guid: a38c0b4d3d8e3c44ab0cee273827579d, type: 2}
+  - {fileID: 11400000, guid: e0d38aeb9743c20468841dbf43d0fb72, type: 2}
+  - {fileID: 11400000, guid: 476b36239cc6e284cbd1352066a0bee9, type: 2}
+  - {fileID: 11400000, guid: f3330e20c23365741b4aa85a79e863bb, type: 2}
+  - {fileID: 11400000, guid: 9291ea84ea3c07e4da645089eae4eca3, type: 2}
+  - {fileID: 11400000, guid: e7cc5bc70ea894b458f1dcd26d3ff4b4, type: 2}
+  - {fileID: 11400000, guid: af7118f629d0a1e40973a888aa4f66b3, type: 2}
+  - {fileID: 11400000, guid: 1cd45dff01351574a8fc298cb1239e2e, type: 2}
+  - {fileID: 11400000, guid: 031c6e1ee8db5614bb8a354c8a5120cd, type: 2}
+  - {fileID: 11400000, guid: a251348664163f649a268189ba40e4e2, type: 2}
+  - {fileID: 11400000, guid: fbf8a0ec2212cb143a6da877da5cd40a, type: 2}
+  upgradePoints: 0
