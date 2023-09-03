@@ -11,11 +11,13 @@ public class MovementSubmarine : MonoBehaviour
     private float x_scale;
     private void OnEnable()
     {
+        AudioManager.instance.PlaySound("sub");
         inputs.Enable();
     }
 
     private void OnDisable()
     {
+        AudioManager.instance.StopSound("sub");
         inputs.Disable();
     }
 

@@ -15,11 +15,13 @@ public class MovementPlayer : MonoBehaviour
 
     private void OnEnable()
     {
+        AudioManager.instance.PlaySound("player");
         inputs.Enable();
     }
 
     private void OnDisable()
     {
+        AudioManager.instance.StopSound("player");
         inputs.Disable();
     }
 

@@ -17,6 +17,7 @@ public class PhotoCamera : MonoBehaviour
     {
        if (Input.GetMouseButtonDown(0) && fov.targetsInRadius.Length > 0)
        {
+                AudioManager.instance.PlaySound("camera");
                 Shoot(fov.targetsInRadius);
        } 
     }
@@ -31,6 +32,8 @@ public class PhotoCamera : MonoBehaviour
 
     public void Shoot(Collider2D[] peixes)
     {
+        
+
         float dist = 0;
         Debug.Log(peixes.Length);
         foreach (Collider2D mano in peixes)
@@ -42,24 +45,20 @@ public class PhotoCamera : MonoBehaviour
                 Debug.Log(peixe.name);
             }
         }
+        string tag = peixe.tag;
         //Atordoa Peixe
         StartCoroutine(Atordoar(peixe));
-
-
+        
         //Atualiza catálogo
-        string tag = peixe.tag;
-        Catalogo catalogo = GameObject.FindGameObjectWithTag("Catalogo").GetComponent<Catalogo>();
-        foreach(DadosPeixe registro in catalogo.peixes)
-        {
-            if (registro.nomePeixe==tag)
-            {
-                registro.fotografados++;
-                if (registro.fotografados==registro.meta)
-                {
-                    catalogo.upgradePoints++;
-                    catalogo.Efeito(catalogo.upgradePoints);
-                }
-                return;
+        Catalogo catalogo = GameObject.FindGameObjectWithTag("Player").GetComponent<Catalogo>();
+        if(catalogo.registros.TryGetValue(tag, out int value))
+        {   
+            value++;
+            if (value == catalogo.Checkpoints[tag])
+            {   
+                catalogo.registros[tag] = value;
+                catalogo.upgradePoints++;
+                catalogo.Efeito(catalogo.upgradePoints);
             }
         }
     }

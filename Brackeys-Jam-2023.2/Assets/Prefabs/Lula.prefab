@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -411032125551891033}
   m_Layer: 0
   m_Name: Lula
-  m_TagString: Lula
+  m_TagString: Agua-Viva
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
