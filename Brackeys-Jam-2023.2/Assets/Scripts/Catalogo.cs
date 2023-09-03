@@ -8,12 +8,11 @@ public class Catalogo : MonoBehaviour
     public List<DadosPeixe> peixes;
     public int upgradePoints;
     private GameObject canva;
-    
     private void Awake()
     {
         canva = gameObject.transform.GetChild(0).gameObject;
     }
-    
+
     public void Efeito(int pontos)
     {
         if(pontos == 3 || pontos == 6 || pontos == 9)
@@ -29,15 +28,8 @@ public class Catalogo : MonoBehaviour
 
     private void Update()
     {
-        if( Input.GetKeyDown(KeyCode.E) && canva.activeSelf == true ) 
-        {
-            canva.SetActive(false);
-        }
 
-        if (Input.GetKeyDown(KeyCode.E) && canva.activeSelf == false)
-        {
-            canva.SetActive(true);
-        }
+
     }
     
     

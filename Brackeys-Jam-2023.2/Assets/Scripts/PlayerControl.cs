@@ -44,6 +44,15 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AbrirCatalogo"",
+                    ""type"": ""Button"",
+                    ""id"": ""caccaaf5-cea1-4dd2-90ac-5918a36bd720"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -99,6 +108,17 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""279d2d94-7dc1-48b2-b484-64f3f513efbd"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AbrirCatalogo"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -211,6 +231,7 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
         m_PlayerControlMovement = asset.FindActionMap("PlayerControlMovement", throwIfNotFound: true);
         m_PlayerControlMovement_Move = m_PlayerControlMovement.FindAction("Move", throwIfNotFound: true);
         m_PlayerControlMovement_Jump = m_PlayerControlMovement.FindAction("Jump", throwIfNotFound: true);
+        m_PlayerControlMovement_AbrirCatalogo = m_PlayerControlMovement.FindAction("AbrirCatalogo", throwIfNotFound: true);
         // SubmarinoControl
         m_SubmarinoControl = asset.FindActionMap("SubmarinoControl", throwIfNotFound: true);
         m_SubmarinoControl_Move = m_SubmarinoControl.FindAction("Move", throwIfNotFound: true);
@@ -278,12 +299,14 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
     private IPlayerControlMovementActions m_PlayerControlMovementActionsCallbackInterface;
     private readonly InputAction m_PlayerControlMovement_Move;
     private readonly InputAction m_PlayerControlMovement_Jump;
+    private readonly InputAction m_PlayerControlMovement_AbrirCatalogo;
     public struct PlayerControlMovementActions
     {
         private @InputControls m_Wrapper;
         public PlayerControlMovementActions(@InputControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_PlayerControlMovement_Move;
         public InputAction @Jump => m_Wrapper.m_PlayerControlMovement_Jump;
+        public InputAction @AbrirCatalogo => m_Wrapper.m_PlayerControlMovement_AbrirCatalogo;
         public InputActionMap Get() { return m_Wrapper.m_PlayerControlMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -299,6 +322,9 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                 @Jump.started -= m_Wrapper.m_PlayerControlMovementActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerControlMovementActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerControlMovementActionsCallbackInterface.OnJump;
+                @AbrirCatalogo.started -= m_Wrapper.m_PlayerControlMovementActionsCallbackInterface.OnAbrirCatalogo;
+                @AbrirCatalogo.performed -= m_Wrapper.m_PlayerControlMovementActionsCallbackInterface.OnAbrirCatalogo;
+                @AbrirCatalogo.canceled -= m_Wrapper.m_PlayerControlMovementActionsCallbackInterface.OnAbrirCatalogo;
             }
             m_Wrapper.m_PlayerControlMovementActionsCallbackInterface = instance;
             if (instance != null)
@@ -309,6 +335,9 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @AbrirCatalogo.started += instance.OnAbrirCatalogo;
+                @AbrirCatalogo.performed += instance.OnAbrirCatalogo;
+                @AbrirCatalogo.canceled += instance.OnAbrirCatalogo;
             }
         }
     }
@@ -383,6 +412,7 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnAbrirCatalogo(InputAction.CallbackContext context);
     }
     public interface ISubmarinoControlActions
     {
