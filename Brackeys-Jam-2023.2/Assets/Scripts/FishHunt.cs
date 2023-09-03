@@ -110,7 +110,6 @@ public class FishHunt : MonoBehaviour
         while (podeNadar)
         {
             // Troca o sprite para simular a animação de natação
-            spriteRenderer.sprite = swimSprites[Random.Range(0, swimSprites.Length)];
 
             // Move o peixe em direção ao ponto alvo
             while (Vector3.Distance(transform.position, targetPosition) > 0.1f)

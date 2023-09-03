@@ -6,14 +6,25 @@ TagManager:
   tags:
   - Prey
   - Pradator
+  - Palhaco
+  - AguaViva
+  - Axolote
+  - Coringa
+  - Espada
+  - Machado
+  - Piranha
+  - Agua-Viva
+  - pexeflor
+  - monstrovrum
+  - vagalume
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Peixe
   - Water
   - UI
-  - 
+  - Cenario
   - 
   - 
   - 
