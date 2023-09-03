@@ -7,34 +7,12 @@ public class Catalogo : MonoBehaviour
 {
     public List<DadosPeixe> peixes;
     public int upgradePoints;
+    private GameObject canva;
     
-    /*private void Start() 
+    private void Awake()
     {
-        //Tipo de peixe e quantos fotografou 
-        registros.Add("Palhaco", 0);
-        registros.Add("AguaViva", 0);
-        registros.Add("Axolote", 0);
-        registros.Add("Coringa", 0);
-        registros.Add("Espada", 0);
-        registros.Add("Machado", 0);
-        registros.Add("Piranha", 0);
-        registros.Add("Agua-Viva", 0);
-        registros.Add("pexeflor", 0);
-        registros.Add("monstrovrum", 0);
-        registros.Add("vagalume", 0);
-        //Tipo de peixe e quantos necessários para ganhar o ponto de Upgrade
-        Checkpoints.Add("Palhaco", 6);
-        Checkpoints.Add("AguaViva", 5);
-        Checkpoints.Add("Axolote", 4);
-        Checkpoints.Add("Coringa", 3);
-        Checkpoints.Add("Espada", 4);
-        Checkpoints.Add("Machado", 3);
-        Checkpoints.Add("Piranha", 2);
-        Checkpoints.Add("Agua-Viva", 5);
-        Checkpoints.Add("pexeflor", 2);
-        Checkpoints.Add("monstrovrum", 1);
-        Checkpoints.Add("vagalume", 5);
-    }*/
+        canva = gameObject.transform.GetChild(0).gameObject;
+    }
     
     public void Efeito(int pontos)
     {
@@ -46,6 +24,19 @@ public class Catalogo : MonoBehaviour
         else if (pontos == 2 || pontos == 4 || pontos == 8 )
         {
             GameObject.Find("player").GetComponent<MovementPlayer>().UpdatePlayerSpeed(2*(pontos/2));
+        }
+    }
+
+    private void Update()
+    {
+        if( Input.GetKeyDown(KeyCode.E) && canva.activeSelf == true ) 
+        {
+            canva.SetActive(false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && canva.activeSelf == false)
+        {
+            canva.SetActive(true);
         }
     }
     
