@@ -1067,7 +1067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  jumpStrength: 30
+  jumpStrength: 60
   deepLimit: 114
   animator: {fileID: 1248653533}
 --- !u!212 &1248653531
